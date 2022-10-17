@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:MauiAppImageTest"
+             x:Class="MauiAppImageTest.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+
+
+            <Label
+                Text="Welcome to .NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Label Text="Uri.ImageSource that works no &amp; in the filename"></Label>
+            <Image
+                                      >
+                <Image.Source>
+                    <UriImageSource CachingEnabled="true" Uri="{Binding ImageUrlGood}" />
+                </Image.Source>
+            </Image>
+            <Label Text="Source Binding"></Label>
+            <Image Source="{Binding ImageUrlGood}"></Image>
+            <Label Text="Image that works but does not have &amp; Source ....png"></Label>
+            <Image Source="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2020/10/dotnet-bot_handybot.png"></Image>
+            <Label Text="Images that don't work with  in the URI that have &amp;"></Label>
+            <Image Source="{Binding ImageUrlBad}"></Image>
+            <Label Text="Images that don't work with  in the URI that have &amp;amp;"></Label>
+            <Image Source="{Binding ImageUrlBad2}"></Image>
+            <Button Text=" Load From Resource" Clicked="onClick">
+                
+            </Button>
+            <Image x:Name="dynamicImage" Source="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2020/10/dotnet-bot_handybot.png"></Image>
+            
+            <!--
+            <Image>
+                <Image.Source >
+                    <UriImageSource Uri ="https://i.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI"></UriImageSource>
+                </Image.Source>
+            </Image>
+            -->
+<!--
+            <Image>
+                <Image.Source >
+                    <UriImageSource Uri ="http://books.google.com/books/content?id=ArLbO9YdVMMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"></UriImageSource>
+                </Image.Source>
+            </Image>
+
+-->
+            <!-- test 2
+          
+            <Image>
+                <Image.Source >
+                    <UriImageSource Uri ="http://books.google.com/books/content?id=ArLbO9YdVMMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api">
+                    </Image.Source>
+            </Image>
+            -->
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
